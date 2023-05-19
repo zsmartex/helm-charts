@@ -1,0 +1,18 @@
+dependencies:
+- name: adminer
+  repository: https://cetic.github.io/helm-charts
+  version: 0.2.1
+- name: postgresql
+  repository: oci://registry-1.docker.io/bitnamicharts
+  version: 12.5.1
+- name: elasticsearch
+  repository: oci://registry-1.docker.io/bitnamicharts
+  version: 19.8.1
+- name: redpanda
+  repository: https://charts.redpanda.com
+  version: 4.0.16
+- name: questdb
+  repository: https://helm.questdb.io
+  version: 0.30.0
+digest: sha256:541b2175af379a0eb254c734e2eb329e8408634a6858e8f474b21033d5ab6bf7
+generated: "2023-05-18T13:02:08.834833248+07:00"
