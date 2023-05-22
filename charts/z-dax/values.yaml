@@ -63,10 +63,11 @@ elasticsearch:
 
 # Redpanda kafka like
 redpanda:
+  fullnameOverride: "z-dax-redpanda"
   tls:
     enabled: false
   statefulset:
-    replicas: 3
+    replicas: 2
   storage:
     persistentVolume:
       enabled: true
