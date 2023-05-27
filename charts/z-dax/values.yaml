@@ -121,3 +121,20 @@ questdb:
       - host: questdb.k8s-learn.com
         paths:
           - /
+
+vault:
+  server:
+    ha:
+      enabled: true
+      replicas: 3
+      raft:
+        enabled: true
+    service:
+      dataStorage:
+        enabled: true
+        size: 10Gi
+        storageClass: k8slvm
+      auditStorage:
+        enabled: true
+        size: 10Gi
+        storageClass: k8slvm

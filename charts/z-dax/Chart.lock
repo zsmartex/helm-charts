@@ -17,8 +17,11 @@ dependencies:
 - name: console
   repository: https://charts.redpanda.com
   version: 0.6.4
+- name: vault
+  repository: https://helm.releases.hashicorp.com
+  version: 0.24.1
 - name: questdb
   repository: https://helm.questdb.io
   version: 0.30.0
-digest: sha256:1fbf535dc6989619ccadb1c52a876319297cc986038500339b7d4b4abbca6642
-generated: "2023-05-27T18:54:14.778467186+07:00"
+digest: sha256:ae00196a9a484b593d1819b0ea9503f85048c09ba44fb13d4ee0a2b0daec4984
+generated: "2023-05-28T00:41:50.942169972+07:00"
