@@ -1,0 +1,5 @@
+kubectl create secret docker-registry huuhaitcr1-secret --docker-server=https://index.docker.io/v1/ --docker-username=USERNAME --docker-password=PASSWORD
+
+kubectl get secret huuhaitcr1-secret --output=yaml > huuhaitcr-secret.yml
+
+kubectl get secret huuhaitcr1-secret --output="jsonpath={.data.\.dockerconfigjson}" | base64 --decode

@@ -61,28 +61,53 @@ elasticsearch:
     tls:
       restEncryption: false
 
-# Redpanda kafka like
-redpanda:
-  fullnameOverride: "z-dax-redpanda"
-  tls:
+# Kafka
+strimzi-kafka-operator:
+  replicas: 1
+  mavenBuilder:
+    image:
+      registry: docker.io
+      repository: zsmartex
+      image: maven-builder
+      tag: latest
+
+schema-registry:
+  nameOverride: schema-registry
+  fullnameOverride: schema-registry
+  replicaCount: 1
+  kafka:
     enabled: false
-  statefulset:
-    replicas: 2
-  storage:
-    persistentVolume:
-      enabled: true
-      size: 10Gi
-      storageClass: k8slvmxfs
-  # Redpanda console kowl
+  externalKafka:
+    brokers:
+      - PLAINTEXT://strimzi-cluster-kafka-bootstrap:9092
+
+console:
   console:
-    ingress:
-      enabled: true
-      className: nginx
-      hosts:
-        - host: console.k8s-learn.com
-          paths:
-            - path: /
-              pathType: ImplementationSpecific
+    config:
+      kafka:
+        brokers:
+          - strimzi-cluster-kafka-bootstrap:9092
+        schemaRegistry:
+          enabled: true
+          urls: ["http://schema-registry:8081"]
+        protobuf:
+          enabled: true
+          schemaRegistry:
+            enabled: true
+            refreshInterval: 5m
+      connect:
+        enabled: true
+        clusters:
+          - name: connect-cluster
+            url: http://strimzi-cluster-connect-api:8083
+  ingress:
+    enabled: true
+    className: nginx
+    hosts:
+      - host: console.k8s-learn.com
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
 
 # Questdb timeseries database
 questdb:

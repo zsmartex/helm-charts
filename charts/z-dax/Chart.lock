@@ -8,11 +8,17 @@ dependencies:
 - name: elasticsearch
   repository: oci://registry-1.docker.io/bitnamicharts
   version: 19.8.1
-- name: redpanda
+- name: strimzi-kafka-operator
+  repository: https://strimzi.io/charts
+  version: 0.35.0
+- name: schema-registry
+  repository: oci://registry-1.docker.io/bitnamicharts
+  version: 11.0.0
+- name: console
   repository: https://charts.redpanda.com
-  version: 4.0.16
+  version: 0.6.4
 - name: questdb
   repository: https://helm.questdb.io
   version: 0.30.0
-digest: sha256:541b2175af379a0eb254c734e2eb329e8408634a6858e8f474b21033d5ab6bf7
-generated: "2023-05-18T13:02:08.834833248+07:00"
+digest: sha256:1fbf535dc6989619ccadb1c52a876319297cc986038500339b7d4b4abbca6642
+generated: "2023-05-27T18:54:14.778467186+07:00"
